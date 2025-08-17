@@ -10,7 +10,7 @@ export default function Home() {
 
   const postResponse = async () => {
     setLoading(true);
-    const response = await axios.post(process.env.VITE_URL_BE, {
+    const response = await axios.post(import.meta.env.VITE_URL_BE + "/prompt", {
       prompt,
     });
 
