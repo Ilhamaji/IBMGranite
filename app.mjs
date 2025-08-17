@@ -4,7 +4,7 @@ import express from "express";
 import cors from "cors";
 
 dotenv.config();
-const replicate = new Replicate({ auth: process.env.REPLICATE_API_KEY });
+const replicate = new Replicate();
 const app = express();
 const port = 3000;
 app.use(express.json());
