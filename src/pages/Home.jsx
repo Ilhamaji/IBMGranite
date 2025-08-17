@@ -7,6 +7,11 @@ export default function Home() {
   const { loading, setLoading } = useLoading();
   const [data, setData] = useState([]);
   const [myPrompt, setMyPrompt] = useState([]);
+  const [refresh, setRefresh] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, document.body.scrollHeight);
+  }, [refresh]);
 
   const postResponse = async () => {
     setLoading(true);
@@ -18,7 +23,7 @@ export default function Home() {
     setMyPrompt((prev) => [...prev, prompt]);
     setPrompt("");
     setLoading(false);
-    window.scrollTo(0, document.body.scrollHeight);
+    setRefresh(!refresh);
   };
 
   return (
